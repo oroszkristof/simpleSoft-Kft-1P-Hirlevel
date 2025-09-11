@@ -1,13 +1,16 @@
+/* minden elem dobozmodellezése */
 * {
   box-sizing: border-box;
 }
 
+/* teljes magasság és fehér háttér */
 html,
 body {
   height: 100%;
   background-color: white;
 }
 
+/* alap betűkészlet és szín */
 body {
   margin: 0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -15,39 +18,61 @@ body {
   background: white;
 }
 
-/* Központi tartalom szélesség és igazítás */
+/* külső konténer (header, main) */
 .container {
-  width: min(1200px, 94vw);
-  margin-inline: auto;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-/* Kétoszlopos fő rácsos elrendezés (bal nagyobb, jobb kisebb) */
+/* oldalrács a két hasábhoz (bal szélesebb) */
 .page-grid {
   display: grid;
   grid-template-columns: 2.1fr 1fr;
-  gap: 0px;
+  align-items: stretch;
+  gap: 0;
   padding: 22px 0 36px;
-  align-items: start;
+  min-height: 100vh;
 }
 
-/* Bal oldali oszlop elrendezés (felső tartalom + alsó kép) */
+/* bal hasáb (aside.left-col) */
 .left-col {
   display: grid;
   grid-template-rows: 1fr auto;
-  gap: 30px;
+  gap: 0;
 }
 
-/* Jobb oldali oszlop rugalmas elrendezés kártyáknak */
+/* jobb hasáb (aside.right-col) */
 .right-col {
-  display: grid;
-  grid-auto-rows: min-content;
-  gap: 0px;
-  height: auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
+/* felső sáv szövegblokk (Modern Vállalkozások Programja) */
+.text {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
+/* dísz-sáv a szöveg előtt */
+.text .box {
+  width: 60px;
+  height: 25px;
+  background: #11214d;
+  flex-shrink: 0;
+}
 
-/* Főoldali cím formázása */
+/* dísz-sáv melletti erősített szöveg */
+.text .text {
+  color: #11214d;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+/* főcím (header > .titlebar h1) */
 .titlebar h1 {
   margin: 10px 0;
   color: #ffb000;
@@ -57,43 +82,40 @@ body {
   font-size: clamp(22px, 4vw, 36px);
 }
 
-/* Alap bekezdés */
+/* alap bekezdés */
 p {
   font-size: 14px;
 }
 
-/* Meghívó kártya külső doboz */
+/* meghívó kártya (article.invite-card) */
 .invite-card {
-  background:
-    radial-gradient(1200px 400px at 50% -20%, rgba(255, 255, 255, 0.06), transparent 60%),
-    #0b1533;
+  background: transparent;
+  border: none;
+  box-shadow: none;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.14);
-  height: 100%;
+  height: auto;
 }
 
-/* Meghívó kártya belső tartalom */
+/* meghívó belső tartalom (div.invite-inner) */
 .invite-inner {
   padding: 22px;
-  background: linear-gradient(180deg, #0b1533 0%, #0f2b77 100%);
-  color: #e7efff;
   text-align: center;
 }
 
+/* meghívó cím (nem használt most) */
 .invite-inner h2 {
   margin: 0 0 8px 0;
   font-size: clamp(18px, 2.8vw, 22px);
   font-weight: 800;
 }
 
+/* meghívó lead szöveg (nem használt most) */
 .invite-inner .lead {
   margin: 0 0 12px 0;
-  color: #d7e3ff;
   font-size: 20px;
 }
 
-/* QR kód doboz */
+/* QR kód doboz (nincs a HTML-ben) */
 .qr {
   width: 160px;
   height: auto;
@@ -104,16 +126,26 @@ p {
   margin: 10px auto 0;
 }
 
-/* Tartalmi kártya címsor */
+/* köszöntő kép (img.koszonto-kep) */
+.koszonto-kep {
+  width: 100%;
+  height: auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  display: block;
+  margin: 0 auto;
+}
+
+/* tartalmi kártya címsor (content-card h3) */
 .content-card h3 {
-  margin: 0;              
-  padding-left: 10px;     
-  border-left: 60px solid #11214d; 
+  margin: 0;
+  padding-left: 10px;
+  border-left: 60px solid #11214d;
   position: relative;
   left: -20px;
-              
+  height: 25px;
 }
-/* Tartalmi kártya szöveg */
+
+/* tartalmi kártya bekezdés (content-card p) */
 .content-card p {
   margin: 0;
   color: #2c3554;
@@ -122,36 +154,14 @@ p {
   max-width: 800px;
 }
 
-/* Szövegblokk doboz és igazítás */
-.text {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.text .box {
-  width: 60px;
-  height: 25px;
-  background: #11214d;
-  flex-shrink: 0;
-}
-
-.text .text {
-  color: #11214d;
-  font-size: 14px;
-  font-weight: 800;
-  line-height: 1.3;
-}
-
-/* Bal alsó kép */
-.left-bottom-image img {
+/* illusztráció kép doboza (right-col > .box img) */
+.box img {
   width: 100%;
   height: auto;
   display: block;
-  margin-top: auto;
 }
 
-/* CTA kártya */
+/* CTA kártya alap (article.cta-card) */
 .cta-card {
   background: #0b1533;
   color: #ffffff;
@@ -164,6 +174,7 @@ p {
   height: 100%;
 }
 
+/* CTA fej (türkiz háttér, pl. „Kattints”) */
 .cta-card .cta-head {
   background: #1fd4c4;
   padding: 10px 16px;
@@ -173,6 +184,7 @@ p {
   text-transform: none;
 }
 
+/* CTA fej alternatív (narancs háttér, pl. „Rendezvényeink”) */
 .cta-card .cta-head2 {
   background: orange;
   padding: 10px 16px;
@@ -182,24 +194,29 @@ p {
   text-transform: none;
 }
 
+/* CTA törzs (div.cta-body) */
 .cta-card .cta-body {
   padding: 16px;
   max-width: 70ch;
 }
 
+/* CTA kártyán belüli bekezdés */
 .cta-card p {
   margin: 0 0 12px 0;
 }
 
+/* CTA kártyán belüli félkövér kiemelés */
 .cta-card strong {
   font-weight: 700;
 }
 
+/* CTA kártyán belüli link */
 .cta-card a {
   color: white;
   text-decoration: underline;
 }
 
+/* CTA kártya listák */
 .cta-card ol {
   margin: 0 0 16px 18px;
   padding: 0;
@@ -209,7 +226,7 @@ p {
   margin: 6px 0;
 }
 
-/* CTA gomb */
+/* CTA regisztráció gomb (a.btn-register) */
 .cta-card .btn-register {
   display: block;
   width: fit-content;
@@ -225,69 +242,93 @@ p {
   transition: background 0.3s ease;
 }
 
+/* CTA gomb hover állapot */
 .cta-card .btn-register:hover {
   background: #17b3a8;
 }
 
-/* Bal oldali lábléc */
+/* lábléc (footer) */
+footer {
+  grid-column: 1;
+  background-color: #2EC4B6;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 16px;
+}
+
+/* lábléc bal alsó kép */
+.left-bottom-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: auto;
+}
+
+/* lábléc szöveg (span.left-footer) */
 .left-footer {
   grid-column: 1;
   color: white;
   font-size: 10px;
   font-weight: bold;
-  
   text-align: center;
   padding: 10px 16px;
 }
 
-/* Footer szöveg */
-footer {
-  grid-column: 1;
-  color: white;
-  font-size: 10px;
-  font-weight: bold;
-  background-color: #2EC4B6;
-  text-align: center;
-  padding: 10px 16px;
-}
-
-/* Linkek */
+/* globális linkek színe (pl. footer linkek) */
 a {
   color: white;
 }
 
+/* méret segédosztály (nincs használatban) */
+.size {
+  font-size: 20px;
+}
+
+/* reszponzív nézet mobilon (max 980px) */
 @media (max-width: 980px) {
 
-  /* Bal oszlop magasság mobilon */
+  /* bal hasáb ne legyen fix magasságú */
   .left-col {
     height: auto;
   }
 
-  .page-grid { display: block; }
-
-  .right-col {
-    display: block;     
+  /* hasábok egymás alatt jelenjenek meg */
+  .page-grid { 
+    display: block; 
   }
+
+  /* jobb hasáb blokkos elrendezés */
+  .right-col {
+    display: block;
+  }
+
+  /* jobb hasáb elemek között térköz */
   .right-col > * {      
     margin-bottom: 16px;
   }
-  .right-col > *:last-child { margin-bottom: 0; }
-}
 
-  /* Felső szövegdoboz tördelés mobilon */
+  /* utolsó jobb hasáb elem alatt ne legyen margó */
+  .right-col > *:last-child { 
+    margin-bottom: 0; 
+  }
+
+  /* felső szövegdoboz tördelése mobilon */
   .text {
     flex-wrap: wrap;
     align-items: flex-start;
     gap: 8px;
   }
 
-  /* Cikkdoboz címsor mobilon */
+  /* tartalmi kártya címsor mobilon */
   .content-card h3 {
     font-size: 18px;
     border-left-width: 40px;
   }
 
-  /* Főcím mobilon */
+  /* főcím mobilon */
   .titlebar h1 {
     font-size: clamp(22px, 4vw, 36px);
   }
+}
