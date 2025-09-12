@@ -44,7 +44,7 @@ body {
 
 /* jobb hasáb (aside.right-col) */
 .right-col {
-  display: flex;
+  display: grid;
   flex-direction: column;
   height: 100%;
 }
@@ -54,6 +54,9 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
+   margin: 0;
+  padding: 0;
+  align-items: flex-start;
 }
 
 /* dísz-sáv a szöveg előtt */
@@ -80,13 +83,20 @@ body {
   letter-spacing: 0.8px;
   text-transform: uppercase;
   font-size: clamp(22px, 4vw, 36px);
+  margin-left: 30px;
 }
 
 /* alap bekezdés */
 p {
   font-size: 14px;
+  margin-left: 30px;
 }
 
+/*A margetinges szöveg margóbeállítása.*/
+.margin {
+  margin-left: 30px;
+  margin-right: 10px;
+}
 /* meghívó kártya (article.invite-card) */
 .invite-card {
   background: transparent;
@@ -113,17 +123,6 @@ p {
 .invite-inner .lead {
   margin: 0 0 12px 0;
   font-size: 20px;
-}
-
-/* QR kód doboz (nincs a HTML-ben) */
-.qr {
-  width: 160px;
-  height: auto;
-  background: #fff;
-  padding: 10px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-  margin: 10px auto 0;
 }
 
 /* köszöntő kép (img.koszonto-kep) */
@@ -166,10 +165,9 @@ p {
   background: #0b1533;
   color: #ffffff;
   font-size: 14px;
-  line-height: 1.6;
-  letter-spacing: -0.02em;
   padding: 0;
   display: flex;
+  letter-spacing: 0.02em;
   flex-direction: column;
   height: 100%;
 }
