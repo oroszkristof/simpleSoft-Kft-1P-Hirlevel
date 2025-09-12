@@ -25,7 +25,7 @@ body {
   padding: 0;
 }
 
-/* oldalrács a két hasábhoz (bal szélesebb) */
+/* oldalrács a két hasábhoz (a bal szélesebb) */
 .page-grid {
   display: grid;
   grid-template-columns: 2.1fr 1fr;
@@ -94,7 +94,7 @@ p {
 
 /*A margetinges szöveg margóbeállítása.*/
 .margin {
-  margin-left: 30px;
+  margin-left: 20px;
   margin-right: 10px;
 }
 /* meghívó kártya (article.invite-card) */
@@ -112,21 +112,8 @@ p {
   text-align: center;
 }
 
-/* meghívó cím (nem használt most) */
-.invite-inner h2 {
-  margin: 0 0 8px 0;
-  font-size: clamp(18px, 2.8vw, 22px);
-  font-weight: 800;
-}
-
-/* meghívó lead szöveg (nem használt most) */
-.invite-inner .lead {
-  margin: 0 0 12px 0;
-  font-size: 20px;
-}
-
 /* köszöntő kép (img.koszonto-kep) */
-.welcome-kep {
+.welcome-imagine {
   width: 100%;
   height: auto;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
@@ -182,7 +169,7 @@ p {
   text-transform: none;
 }
 
-/* CTA fej alternatív (narancs háttér, pl. „Rendezvényeink”) */
+/* CTA fej (narancs háttér, pl. „Rendezvényeink”) */
 .cta-card .cta-head2 {
   background: orange;
   padding: 10px 16px;
@@ -277,11 +264,6 @@ footer {
 /* globális linkek színe (pl. footer linkek) */
 a {
   color: white;
-}
-
-/* méret segédosztály (nincs használatban) */
-.size {
-  font-size: 20px;
 }
 
 /* reszponzív nézet mobilon (max 980px) */
